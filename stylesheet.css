@@ -1,0 +1,60 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 0px 2000px 0px;
+    width: 100vw;
+    height: 100vh;
+    overflow: clip scroll;
+    background-color: #fcefdb;
+    position: relative;
+}
+
+#envelopeWrapper {
+    display: grid;
+    position: sticky;
+    top: 180px;
+}
+
+#envelopeOpen,
+#envelopeBody,
+#letterBody {
+    width: 600px;
+    height: 450px;
+    background-color: #ecc275;
+    grid-row: 1;
+    grid-column: 1;
+    border-radius: 4px;
+    
+}
+
+#envelopeBody {
+    z-index: 1;
+    outline: 4px solid #746a45;
+    border-radius: 4px;
+}
+
+#letterBody {
+    z-index: 2;
+}
+
+#envelopeOpen {
+    z-index: 3;
+    clip-path: polygon(100% 0, 0 0, 51% 50%);
+    background-color: #746045;
+    animation: open;
+    animation-timeline: scroll();
+}
+
+
+@keyframes open {
+   
+  30% {
+    transform: translateY(-450px) scaleY(-1);
+    
+  }
+  100% {
+    transform: translateY(-450px) scaleY(-1);
+    
+  }
+}
