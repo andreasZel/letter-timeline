@@ -2,7 +2,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0px 0px 2000px 0px;
+    margin: 0px 0px 400px 0px;
     width: 100vw;
     height: 100vh;
     overflow: clip scroll;
@@ -13,7 +13,7 @@ body {
 #envelopeWrapper {
     display: grid;
     position: sticky;
-    top: 180px;
+    top: 200px;
 }
 
 #envelopeOpen,
@@ -25,11 +25,11 @@ body {
     grid-row: 1;
     grid-column: 1;
     border-radius: 4px;
-    
+
 }
 
 #envelopeBody {
-    z-index: 2;
+    z-index: 3;
     outline: 4px solid #746a45;
     border-radius: 4px;
     clip-path: polygon(0 0, 51% 50%, 100% 0, 100% 100%, 51% 100%, 0 100%);
@@ -38,10 +38,12 @@ body {
 #letterBody {
     z-index: 1;
     background-color: white;
+    animation: popandsit;
+    animation-timeline: scroll();
 }
 
 #envelopeOpen {
-    z-index: 3;
+    z-index: 2;
     clip-path: polygon(100% 0, 0 0, 51% 50%);
     background-color: #746045;
     animation: open;
@@ -50,13 +52,32 @@ body {
 
 
 @keyframes open {
-   
-  30% {
-    transform: translateY(-450px) scaleY(-1);
-    
-  }
-  100% {
-    transform: translateY(-450px) scaleY(-1);
-    
-  }
+
+    30% {
+        transform: translateY(-450px) scaleY(-1);
+
+    }
+
+    100% {
+        transform: translateY(-450px) scaleY(-1);
+
+    }
+}
+
+@keyframes popandsit {
+    10% {
+        transform: translateY(5px);
+
+    }
+    30% {
+        transform: translateY(-450px);
+        z-index: 2;
+    }
+    40% {
+        z-index: 3;
+    }
+    100% {
+        transform: translateY(250px) scale(1.2);
+        z-index: 4;
+    }
 }
