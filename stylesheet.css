@@ -69,6 +69,18 @@ body {
     background-color: white;
     animation: popandsit;
     animation-timeline: scroll();
+    overflow: clip;
+    display: grid;
+}
+
+#letterBody h2 {
+    padding: 0px 10px;
+}
+
+#letterBody p {
+    padding: 0px 10px;
+    margin: 0;
+    overflow: clip auto;
 }
 
 #envelopeOpen {
