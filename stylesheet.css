@@ -6,7 +6,11 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: clip scroll;
-    background-color: #fcefdb;
+    background-color: #cc8800;
+    background-size: cover;
+    backdrop-filter: blur(9.7px);
+
+    border: 1px solid rgba(118, 92, 92, 0.24);
     position: relative;
 }
 
@@ -14,10 +18,12 @@ body {
     display: grid;
     position: sticky;
     top: 200px;
+    box-shadow: 0px 0px 28px -7px rgb(0 0 0 / 42%);
 }
 
 #envelopeOpen,
 #envelopeBody,
+#envelopeBodyBack,
 #letterBody {
     width: 600px;
     height: 450px;
@@ -25,14 +31,14 @@ body {
     grid-row: 1;
     grid-column: 1;
     border-radius: 4px;
-
 }
+
+#envelopeBodyBack {}
 
 #envelopeBody {
     z-index: 3;
-    outline: 4px solid #746a45;
     border-radius: 4px;
-    clip-path: polygon(0 0, 51% 50%, 100% 0, 100% 100%, 51% 100%, 0 100%);
+    clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 50% 100%, 0 100%);
 }
 
 #letterBody {
@@ -44,10 +50,11 @@ body {
 
 #envelopeOpen {
     z-index: 2;
-    clip-path: polygon(100% 0, 0 0, 51% 50%);
+    clip-path: polygon(100% 0, 0 0, 50% 50%);
     background-color: #746045;
     animation: open;
     animation-timeline: scroll();
+    filter: drop-shadow(0px 0px 10px #000000);
 }
 
 
@@ -65,18 +72,23 @@ body {
 }
 
 @keyframes popandsit {
-    10% {
-        transform: translateY(5px);
-
+    15% {
+        transform: translateY(0);
     }
+
     30% {
         transform: translateY(-450px);
         z-index: 2;
     }
-    40% {
+
+    35% {
         z-index: 3;
+
     }
+
     100% {
+        box-shadow: 0px 0px 28px -7px rgb(0 0 0 / 42%);
+
         transform: translateY(250px) scale(1.2);
         z-index: 4;
     }
