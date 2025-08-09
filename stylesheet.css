@@ -71,6 +71,7 @@ body {
     animation-timeline: scroll();
     overflow: clip;
     display: grid;
+    grid-template-rows: auto 1fr;
 }
 
 #letterBody h2 {
